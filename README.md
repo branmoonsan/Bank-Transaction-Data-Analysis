@@ -22,4 +22,13 @@ SELECT
     AVG(transaction_amount) AS avg_transaction_amount
 FROM public.bank_transactions;
 ```
+**Output**
+
+<img width="900" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2016.00.32.png">
+
+There are over 880k customers and over 1 mil transactions.
+
+***
+
+
 
