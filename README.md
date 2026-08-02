@@ -77,6 +77,60 @@ Male customers aged 36-45 have the highest number of transactions, followed by m
 
 ***
 
+### 3. Which cities have the highest banking activity?
+```sql
+SELECT
+    customer_location AS city,
+    COUNT(*) AS no_of_transaction,
+    SUM(transaction_amount) AS total_transaction_amount
+FROM public.bank_transactions
+WHERE customer_location IS NOT NULL
+GROUP BY customer_location
+ORDER BY no_of_transaction DESC
+LIMIT 5;
+```
+**Output**
+
+<img width="500" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2017.59.23.png">
+
+Mumbai, New Delhi and Bangalore are the top three cities with the highest banking activity by both number of transactions and total transaction volume.
+
+***
+
+### 4. How does transaction activity change over time? (Monthly Trend)
+```sql
+--Use CTE to compute monthly transactions table.
+WITH monthly_transactions AS(
+    SELECT
+        EXTRACT(MONTH FROM TO_DATE(transaction_date, 'DD/MM/YY')) AS month,
+        SUM(transaction_amount) AS total_transaction_volume
+    FROM
+        public.bank_transactions
+    GROUP BY
+        month
+)
+
+SELECT
+    month,
+    total_transaction_volume,
+    ROUND(
+        (
+            total_transaction_volume 
+            - LAG(total_transaction_volume) OVER (ORDER BY month) 
+        )* 100
+        / LAG(total_transaction_volume) OVER (ORDER BY month), 
+        2
+    ) AS growth_percentage
+FROM monthly_transactions
+ORDER BY month;
+```
+**Output**
+
+<img width="600" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2022.33.56.png">
+
+August recorded the highest transaction volume, exceeding 1 billion. In September, transaction volume declined by 40.57% month-over-month, falling to approximately 600 million. The downward trend continued in October, with transaction volume decreasing by a further 98.75% compared with the previous month. Overall, we can see a significant downtrend in transaction activity.
+
+***
 
 
 
