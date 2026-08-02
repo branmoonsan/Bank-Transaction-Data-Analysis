@@ -1,6 +1,6 @@
 # Bank-Transaction-Data-Analysis
 
-#### SQL, PostgreSQL
+#### SQL, PostgreSQL, VS Code
 ## 📊 Dataset
 
 The dataset used in this project was downloaded from Kaggle:
