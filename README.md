@@ -45,7 +45,7 @@ SET customer_age =
 SELECT
     age_group,
     customer_gender,
-    COUNT(*) AS no_transaction
+    COUNT(*) AS no_of_transaction
 FROM (
     SELECT *,
     CASE
@@ -66,12 +66,12 @@ GROUP BY
     age_group,
     customer_gender
 ORDER BY
-    no_transaction DESC
+    no_of_transaction DESC
 LIMIT 3;
 ```
 **Output**
 
-<img width="300" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2017.02.24.png">
+<img width="500" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2017.02.24.png">
 
 Male customers aged 36-45 have the highest number of transactions, followed by male customers aged 26-35 and female customers aged 36-45.
 
