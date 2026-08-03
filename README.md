@@ -152,3 +152,29 @@ Customer transaction activity was highest during the afternoon and evening, with
 
 ***
 
+### 6. Who are the bank's most valuable customers?
+```sql
+WITH customer_value AS(
+    SELECT DISTINCT customer_id AS customer_id,
+    SUM(transaction_amount) AS total_transaction_value
+    FROM public.bank_transactions
+    GROUP BY
+        customer_id
+)
+
+SELECT
+    customer_value.customer_id,
+    total_transaction_value,
+    DENSE_RANK() OVER (ORDER BY total_transaction_value DESC) as ranking
+FROM
+    customer_value
+ORDER BY ranking
+LIMIT 5;
+```
+**Output**
+
+<img width="500" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-03%20at%2012.52.50.png">
+
+These are the top five most valuable customers, ranked by their total transaction amount over the three-month period.
+
+***
