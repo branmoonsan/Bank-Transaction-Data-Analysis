@@ -148,7 +148,7 @@ ORDER BY
 
 <img width="400" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-02%20at%2023.05.06.png">
 
-Customer transaction activity was highest during the afternoon and evening, with peak transactions between 6:00 PM and 10:00 PM. This means that customers are more likely to conduct transactions after lunchtime and throughout the evening.
+Customer transaction activity was highest during the afternoon and evening, with peak transactions between 6:00 PM and 9:00 PM. This means that customers are more likely to conduct transactions after lunchtime and throughout the evening.
 
 ***
 
