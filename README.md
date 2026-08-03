@@ -173,7 +173,7 @@ LIMIT 5;
 ```
 **Output**
 
-<img width="500" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-03%20at%2012.52.50.png">
+<img width="600" alt="image" src="https://github.com/branmoonsan/Bank-Transaction-Data-Analysis/blob/main/img/Screenshot%202026-08-03%20at%2012.52.50.png">
 
 These are the top five most valuable customers, ranked by their total transaction amount over the three-month period.
 
